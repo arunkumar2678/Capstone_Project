@@ -14,13 +14,10 @@ The project follows the follow steps:
 
 https://collegefootballdata.com/ 
 
-### Step 1: Scope the Project and Gather Data
-
-#### Scope 
-#### Explain what you plan to do in the project in more detail. What data do you use? What is your end solution look like? What tools did you use? etc>
+### Scope of the Project
 The objective of this project is to collect College Football data for the past decade for analysis for my data engineering project. Once the data is gathered, I will be using the Microsoft excel tool to clean up the data and copy them over as individual files in AWS S3 buckets. I will develop an ETL process using Airflow and Python to perform staging of source data, loading of Facts and Dimension tables, and perform Data Qulaity checks. I will run queries off the snowflake schema to do analysis. I will be focussing on the LSU Team on how they built a championhsip team in 2019 by comparing data over a decade.
 
-#### Describe and Gather Data 
+#### Data Description
 Describe the data sets you're using. Where did it come from? What type of information is included? 
 I am using the data exported from ESPN and other online open sources available online. The data contains granular infromation starting from the conference details till the play by play details of each game and their results.
 
@@ -28,7 +25,6 @@ I am using the data exported from ESPN and other online open sources available o
 - https://collegefootballdata.com/exporter
 - https://drive.google.com/drive/folders/0B13YvT1olZIfZ0NKaEZDdGt3TDQ?resourcekey=0-sh9lds-ck95y3yeBpClk7g
 
-### Step 2: Explore and Assess the Data
 #### Explore the Data 
 Identify data quality issues, like missing values, duplicate data, etc.
 
@@ -39,4 +35,3 @@ Document steps necessary to clean the data
 - Cleaned up special characters that PostgresSQL does not support during insertion of data into the tables. For ex: San José State has a diacritical mark on the letter e in the word "Jose". PostgresSQL fails during insert of data into the tables. So I have replaced words like "José" to 'Jose' by removing the diacritical mark.
 
 
-![title](Staging Data Model.png)
