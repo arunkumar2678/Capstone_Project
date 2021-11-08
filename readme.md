@@ -23,7 +23,7 @@ Identify data quality issues, like missing values, duplicate data, etc.
 
 <img src='images/Staging Data Model.png' width="800" height="800">
 
-<img src='images/Data_Dictionary_1.jpg' width="400" height="400">
+<img src='images/Data_Dictionary_1.jpg' width="600" height="600">
 <img src='images/Data_Dictionary_2.png' width="800" height="800">
 
 
