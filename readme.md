@@ -9,12 +9,11 @@ The objective of this project is to collect College Football data for the past d
 ### Data
 I am using the data exported from ESPN and other open sources available online. The data contains granular information starting from the conference details till the play by play details of each game and their results.
 
-### Data Massaging 
-Identify data quality issues, like missing values, duplicate data, etc.
-
 ### Data Cleansing
 - Fixed the date time stamp column in the files to have a timestamp in the format YYYY-MM-DD HH:MM:SS
 - Cleaned up special characters that PostgreSQL does not support during insertion of data into the tables. For ex: San José State has a diacritical mark on the letter e in the word "Jose". PostgreSQL fails during insert of data into the tables. So I have replaced words like "José" to 'Jose' by removing the diacritical mark.
+
+Identify data quality issues, like missing values, duplicate data, etc.
 
 ###### Sources 
 - https://collegefootballdata.com/exporter
