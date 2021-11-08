@@ -20,9 +20,8 @@ Identify data quality issues, like missing values, duplicate data, etc.
 - Fixed the date time stamp column in the files to have a timestamp in the format YYYY-MM-DD HH:MM:SS
 - Cleaned up special characters that PostgreSQL does not support during insertion of data into the tables. For ex: San José State has a diacritical mark on the letter e in the word "Jose". PostgreSQL fails during insert of data into the tables. So I have replaced words like "José" to 'Jose' by removing the diacritical mark.
 
-#### (/images/Staging Data Model.png)
 
-<img src='Staging Data Model.png' width="400" height="400">
+<img src='images/Staging Data Model.png' width="400" height="400">
     
 
 
