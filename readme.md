@@ -24,6 +24,7 @@ Identify data quality issues, like missing values, duplicate data, etc.
 <img src='images/Staging Data Model.png'>
 
 <img src='images/Data_Dictionary_1.jpg'>
+
 <img src='images/Data_Dictionary_2.jpg'>
 
 
