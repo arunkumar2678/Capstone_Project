@@ -21,7 +21,7 @@ Identify data quality issues, like missing values, duplicate data, etc.
 - Cleaned up special characters that PostgreSQL does not support during insertion of data into the tables. For ex: San José State has a diacritical mark on the letter e in the word "Jose". PostgreSQL fails during insert of data into the tables. So I have replaced words like "José" to 'Jose' by removing the diacritical mark.
 
 
-<img src='images/Staging Data Model.png' width="500" height="500">
+<img src='images/Staging Data Model.png' width="600" height="600">
 
 <img src='images/Data_Dictionary_1.jpg' width="500" height="500">
 <img src='images/Data_Dictionary_2.jpg' width="500" height="500">
