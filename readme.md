@@ -38,3 +38,6 @@ Identify data quality issues, like missing values, duplicate data, etc.
 
 <img src='images/Airflow_Image.jpg'>
 
+### Scope for future Improvements
+- The dataset can be manipilated for different metrics. One good data field is the play text whih contains the description of the plays. We can use this data for text analytics.
+- Also, we can gather data of player information and their drafting metrics.
