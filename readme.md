@@ -34,5 +34,7 @@ Identify data quality issues, like missing values, duplicate data, etc.
 
 <img src='images/Data_Dictionary_2.jpg'>
 
+### Data Pipelines
 
+<img src='images/Airflow_Image.jpg'>
 
