@@ -26,7 +26,7 @@ Identify data quality issues, like missing values, duplicate data, etc.
 
 ### Snowflake Schema Data Model
 
-<img src='images/game_facts.png')'>
+<img src='images/game_facts.png'>
 
 
 ### Data Dictionary
