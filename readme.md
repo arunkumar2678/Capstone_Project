@@ -6,9 +6,7 @@ As a passionate football football and a big fan of LSU football, I wanted to anl
 ### Scope of the Project
 The objective of this project is to collect College Football data for the past decade for analysis for my data engineering project. Once the data is gathered, I will be using Microsoft excel tool to clean up the data and copy them over as individual files in AWS S3 buckets. I will develop an ETL process using Airflow and Python to perform staging of source data, loading of Facts and Dimension tables, and perform Data Quality checks. I will run queries off the snowflake schema to do analysis. I will be focussing on the LSU Team on how they built a championship team in 2019 by comparing the data over a decade.
 
-### Step 2: Explore and Assess the Data
-
-### Data
+###  Explore and Assess the Data
 I am using the data exported from ESPN and other open sources available online. The data contains granular information starting from the conference details till the play by play details of each game and their results.
 
 ### Data Cleansing
