@@ -28,7 +28,6 @@ Identify data quality issues, like missing values, duplicate data, etc.
 
 <img src='images/game_facts.png'>
 
-
 ### Data Dictionary
 <img src='images/Data_Dictionary_1.jpg'>
 
