@@ -37,6 +37,42 @@ Identify data quality issues, like missing values, duplicate data, etc.
 
 <img src='images/Airflow_Image.jpg'>
 
+#### Choice of tools
+I used the following tools to complete my project 
+- Apache Airflow
+- Python
+- Apache Spark
+- Jupyter Notebook
+- PostgresSQL
+- Amazon Redshift
+- AWS
+- dbdiagram
+
+#### why I chose the above tools?
+
+- Apache Airflow: Apache Airflow is an open-source tool to programmatically author, schedule, and monitor workflows. It is one of the most robust platforms used by Data Engineers for orchestrating workflows or pipelines. We can easily visualize our data pipelines' dependencies, progress, logs, code, trigger tasks, and success status.
+
+
+- Python: As Industries are moving towards moved Big data, Machine Learning and Cloud Computing, Python has become the first choice language due to the main reason for python being in high demand in the development market. It is widely used because it is easy to learn and also for it's versatility, efficiency, reliability, and speed. It helps with ease of analyzing and organizing the usable data.
+
+
+- Apache Spark: Apache Spark is helpful for data engineers to build fast and more reliable data pipelines. It is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size. It provides development APIs in Java, Scala, Python and R, and supports code reuse across multiple workloads—batch processing, interactive queries, real-time analytics, machine learning, and graph processing. 
+
+
+- Jupyter Notebook: Used Jupyter notebook to execute scripts and check syntax. It gives flexibility to run individual blocks of scripts of ETL without having to run the whole ETL pipeline. 
+
+
+- Amazon Redshift: Redshift has the ability to handle huge volumes of data and capable of processing structured and unstructured data in the range of exabytes (1018 bytes). I have great learning during the course and I was able to apply my knowledge in this project.
+
+
+- PostgresSQL: Since PostgreSQL supports both SQL (relational) and JSON (non-relational) querying, I preferred PostgresSQL over other tools as it is alos highly stable and used across many web applications across industries
+
+
+- AWS: Since AWS and GCP are the leaders of cloud computing, I preferred to pick AWS as it is gives easier learning experience for beginners compatred to GCP.
+
+
+- dbdiagram: Used dbdiagram tool to create the data model. This tool has the import feature to create the diagram by directly importing the Postgres SQL scripts. This tools provides users with a seamless process in creating data model diagrams.
+
 ### Scope for future Improvements
 - The dataset can be manipilated for different metrics. One good data field is the play text whih contains the description of the plays. We can use this data for text analytics.
 - Also, we can gather data of player information and their drafting metrics.
