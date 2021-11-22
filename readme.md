@@ -18,8 +18,9 @@ I am using the data exported from ESPN and other open sources available online. 
 
 ## Data Model
 - I will build a data model that will help the coaches, analysts and players to learn more about their performances in the prior games they played. The data will help focus on the areas of strengths and weaknesses. Besides players and coaches this data will also help people betting on games to make decisions. Below are some of the exmaple queries you can ask the data model to get your required data set
+  - No of yards gained by school by season
+  - All the offensive drive results of a team by season.
   - Each and every play of all the drives of a game with the drive result.
-  - No of yards gained in each drive.
   - No of TDs, Field goals, punts of your favorite team in a game.
   - How many plays a team made in each game by season.
 
@@ -70,6 +71,7 @@ Apache Airflow is an open-source tool to programmatically author, schedule, and 
 
 - dbdiagram: Used dbdiagram tool to create the data model. This tool has the import feature to create the diagram by directly importing the Postgres SQL scripts. This tools provides users with a seamless process in creating data model diagrams.
 
+- No of yards gained by school by season
 SELECT c.school,
        b.season,
        sum(yards_gained) AS total_yards
@@ -81,31 +83,35 @@ GROUP BY c.school,
          b.season
 ORDER BY b.season DESC
 
+- All the offensive drive results of a team by season.
 SELECT d.offense,
        b.season,
-       count(DISTINCT a.drive_id) AS TDs
+       d.drive_result,
+       count(DISTINCT a.drive_id)
 FROM game_fact a
 JOIN drive_dim d ON a.drive_id = d.drive_id
 JOIN game_dim b ON a.game_id = b.game_id
-WHERE d.offense = 'LSU'
-  AND d.drive_result = 'TD'
+where d.offense = 'LSU'
 GROUP BY d.offense,
-         b.season
-ORDER BY b.season DESC
+         b.season,
+         d.drive_result
+ORDER BY b.season DESC, d.drive_result DESC
 
 ### Scope for future Improvements
 - The dataset can be manipilated for different metrics. One good data field is the play text whih contains the description of the plays. We can use this data for text analytics.
 - Also, we can gather data of player information and their drafting metrics.
 - If data was increased by 100x. If Spark with standalone server mode can not process 100x data set, we could consider to put data in AWS EMR which is a distributed data cluster for processing large data sets on cloud
 
-#### If the data was increased by 100x.
+#### The pipelines run frequency
 The pipelines would be run on a daily basis by 7 am every day.
 - The data should be available on a weekly basis preferrably every Monday by 8:00 AM. The load should be a full file load.
 
-The database needed to be accessed by 100+ people.
-- Currently there is a max of 500 connections and 50 concurrency per cluster.
+#### If the database needed to be accessed by 100+ people.
+- Currently there is a max of 500 connections and 50 concurrency per cluster. I can let 500 connections in the clsuter I have in the AWS.
 
-
+#### If the data was increased by 100x.
+**Per Amazon**:  "Amazon EMR (previously called Amazon Elastic MapReduce) is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. Using these frameworks and related open-source projects, you can process data for analytics purposes and business intelligence workloads. Amazon EMR also lets you transform and move large amounts of data into and out of other AWS data stores and databases, such as Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB."
+- So I will use Amazon EMR if I have to when the data size is increaed by 100 times
 
 ## Conclusion
 
