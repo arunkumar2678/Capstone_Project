@@ -13,8 +13,6 @@ I am using the data exported from ESPN and other open sources available online. 
 - Fixed the date time stamp column in the files to have a timestamp in the format YYYY-MM-DD HH:MM:SS
 - Cleaned up special characters that PostgreSQL does not support during insertion of data into the tables. For ex: San José State has a diacritical mark on the letter e in the word "Jose". PostgreSQL fails during insert of data into the tables. So I have replaced words like "José" to 'Jose' by removing the diacritical mark.
 
-Identify data quality issues, like missing values, duplicate data, etc.
-
 ###### Sources 
 - https://collegefootballdata.com/exporter
 - https://drive.google.com/drive/folders/0B13YvT1olZIfZ0NKaEZDdGt3TDQ?resourcekey=0-sh9lds-ck95y3yeBpClk7g
@@ -50,7 +48,8 @@ I used the following tools to complete my project
 
 #### why I chose the above tools?
 
-- Apache Airflow: Apache Airflow is an open-source tool to programmatically author, schedule, and monitor workflows. It is one of the most robust platforms used by Data Engineers for orchestrating workflows or pipelines. We can easily visualize our data pipelines' dependencies, progress, logs, code, trigger tasks, and success status.
+- Apache Airflow: 
+Apache Airflow is an open-source tool to programmatically author, schedule, and monitor workflows. It is one of the most robust platforms used by Data Engineers for orchestrating workflows or pipelines. We can easily visualize our data pipelines' dependencies, progress, logs, code, trigger tasks, and success status.
 
 
 - Python: As Industries are moving towards moved Big data, Machine Learning and Cloud Computing, Python has become the first choice language due to the main reason for python being in high demand in the development market. It is widely used because it is easy to learn and also for it's versatility, efficiency, reliability, and speed. It helps with ease of analyzing and organizing the usable data.
@@ -64,15 +63,16 @@ I used the following tools to complete my project
 
 - Amazon Redshift: Redshift has the ability to handle huge volumes of data and capable of processing structured and unstructured data in the range of exabytes (1018 bytes). I have great learning during the course and I was able to apply my knowledge in this project.
 
-
-- PostgresSQL: Since PostgreSQL supports both SQL (relational) and JSON (non-relational) querying, I preferred PostgresSQL over other tools as it is alos highly stable and used across many web applications across industries
-
+- PostgreSQL: Since PostgreSQL supports both SQL (relational) and JSON (non-relational) querying, I preferred PostgresSQL over other tools as it is alos highly stable and used across many web applications across industries
 
 - AWS: Since AWS and GCP are the leaders of cloud computing, I preferred to pick AWS as it is gives easier learning experience for beginners compatred to GCP.
-
 
 - dbdiagram: Used dbdiagram tool to create the data model. This tool has the import feature to create the diagram by directly importing the Postgres SQL scripts. This tools provides users with a seamless process in creating data model diagrams.
 
 ### Scope for future Improvements
 - The dataset can be manipilated for different metrics. One good data field is the play text whih contains the description of the plays. We can use this data for text analytics.
 - Also, we can gather data of player information and their drafting metrics.
+
+## Conclusion
+
+- The complete set of data was cleaned up and loaded into the schema tables through ETL pipelines. Using the tables I was able to query data to analyze LSU's performance over the seasons. I have includef a couple of queries and there are more analysis that can be done using the data.
