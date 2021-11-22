@@ -9,7 +9,7 @@ import sql_stmt
 
 default_args = {
     'owner': 'udacity',
-    'start_date': datetime(2021, 11, 17),
+    'start_date': datetime(2021, 11, 21),
     'retries' : 0,
     'retry_delay': timedelta(minutes=5),
     'email_on_retry': False,
@@ -32,7 +32,7 @@ stage_conference_to_redshift = StageToRedshiftOperator(
     dag=dag,
     table = "public.conference",
     s3_path = "s3://collegefootball/conference.csv",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     region="us-west-2",
     data_format="csv",
@@ -44,7 +44,7 @@ stage_team_to_redshift = StageToRedshiftOperator(
     dag=dag,
     table = "public.team",
     s3_path = "s3://collegefootball/team.csv",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     region="us-west-2",
     data_format="csv",
@@ -56,7 +56,7 @@ stage_game_to_redshift = StageToRedshiftOperator(
     dag=dag,
     table = "public.game",
     s3_path = "s3://collegefootball/game.csv",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     region="us-west-2",
     data_format="csv",
@@ -68,7 +68,7 @@ stage_drive_to_redshift = StageToRedshiftOperator(
     dag=dag,
     table = "public.drive",
     s3_path = "s3://collegefootball/drive.csv",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     region="us-west-2",
     data_format="csv",
@@ -80,7 +80,7 @@ stage_play_to_redshift = StageToRedshiftOperator(
     dag=dag,
     table = "public.play",
     s3_path = "s3://collegefootball/play.csv",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     region="us-west-2",
     data_format="csv",
@@ -92,7 +92,7 @@ stage_playtype_to_redshift = StageToRedshiftOperator(
     dag=dag,
     table = "public.playtype",
     s3_path = "s3://collegefootball/playtype.csv",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     region="us-west-2",
     data_format="csv",
@@ -102,7 +102,7 @@ stage_playtype_to_redshift = StageToRedshiftOperator(
 data_quality_conference_table = DataQualityOperator(
     task_id='data_quality_conference_table',
     dag=dag,
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     table = "public.conference"
 )
@@ -110,7 +110,7 @@ data_quality_conference_table = DataQualityOperator(
 data_quality_team_table = DataQualityOperator(
     task_id='data_quality_team_table',
     dag=dag,
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     table = "public.team"
 )
@@ -118,14 +118,14 @@ data_quality_team_table = DataQualityOperator(
 data_quality_game_table = DataQualityOperator(
     task_id='data_quality_game_table',
     dag=dag,
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     table = "public.game"
 )
 data_quality_drive_table = DataQualityOperator(
     task_id='data_quality_drive_table',
     dag=dag,
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     table = "public.drive"
 )
@@ -133,7 +133,7 @@ data_quality_drive_table = DataQualityOperator(
 data_quality_play_table = DataQualityOperator(
     task_id='data_quality_play_table',
     dag=dag,
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     table = "public.play"
 )
@@ -141,7 +141,7 @@ data_quality_play_table = DataQualityOperator(
 data_quality_playtype_table = DataQualityOperator(
     task_id='data_quality_playtype_table',
     dag=dag,
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     table = "public.playtype"
 )
@@ -151,7 +151,7 @@ begin_schema_build_operator = DummyOperator(task_id='Begin_Schema_Build',  dag=d
 #game_fact_table_create = CreateFactDimensionOperator(
 #    task_id='game_fact_table_create',
 #    dag=dag,
-#    redshift_conn_id = "redis_default",
+#    redshift_conn_id = "redshift",
 #    aws_conn_id = "aws_default",
 #    sql = sql_stmt.game_fact_table_create
 #)
@@ -166,7 +166,7 @@ load_game_fact_table = LoadFactOperator(
     task_id='load_game_fact_table',
     dag=dag,
     table = "public.game_fact",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     sql = sql_stmt.game_fact_table_insert
 )
@@ -175,7 +175,7 @@ load_conference_dim_table = LoadDimensionOperator(
     task_id='load_conference_dim_table',
     dag=dag,
     table = "public.conference_dim",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     sql = sql_stmt.conference_dim_table_insert
 )
@@ -184,7 +184,7 @@ load_team_dim_table =  LoadDimensionOperator(
     task_id='load_team_dim_table',
     dag=dag,
     table = "public.tea,_dim",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     sql = sql_stmt.team_dim_table_insert
 )
@@ -193,7 +193,7 @@ load_play_dim_table =  LoadDimensionOperator(
     task_id='load_play_dim_table',
     dag=dag,
     table = "public.play_dim",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     sql = sql_stmt.play_dim_table_insert
 )
@@ -202,7 +202,7 @@ load_game_dim_table = LoadDimensionOperator(
     task_id='load_game_dim_table',
     dag=dag,
     table = "public.game_dim",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     sql = sql_stmt.game_dim_table_insert
 )         
@@ -211,7 +211,7 @@ load_drive_dim_table = LoadDimensionOperator(
     task_id='load_drive_dim_table',
     dag=dag,
     table = "public.drive_dim",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     sql = sql_stmt.drive_dim_table_insert
 )         
@@ -220,7 +220,7 @@ load_playtype_dim_table = LoadDimensionOperator(
     task_id='load_playtype_dim_table',
     dag=dag,
     table = "public.playtype_dim",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     sql = sql_stmt.playtype_dim_table_insert
 )         
@@ -229,7 +229,7 @@ load_betting_line_dim_table = LoadDimensionOperator(
     task_id='load_betting_line_dim_table',
     dag=dag,
     table = "public.betting_line_dim",
-    redshift_conn_id = "redis_default",
+    redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
     sql = sql_stmt.betting_line_dim_table_insert
 )         
