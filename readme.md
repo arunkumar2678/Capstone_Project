@@ -75,4 +75,4 @@ Apache Airflow is an open-source tool to programmatically author, schedule, and 
 
 ## Conclusion
 
-- The complete set of data was cleaned up and loaded into the schema tables through ETL pipelines. Using the tables I was able to query data to analyze LSU's performance over the seasons. I have includef a couple of queries and there are more analysis that can be done using the data.
+- The complete set of data was cleaned up and loaded into the schema tables through ETL pipelines. Using the tables I was able to query data to analyze LSU's performance over the seasons. I have included a couple of queries and there are more analysis that can be done using the data.
