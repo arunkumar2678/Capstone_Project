@@ -66,6 +66,9 @@ team_dim_table_create = """create table if not exists team_dim (
 
 game_dim_table_create = """create table if not exists game_dim (
   game_id int not null,
+  season int,
+  week int, 
+  season_type varchar(50),
   neutral_site boolean not null,
   conference_game boolean not null,
   attendance int,  
@@ -109,8 +112,10 @@ drive_dim_table_create = """create table if not exists drive_dim (
 
 play_dim_table_create = """create table if not exists play_dim (
   play_id bigint not null,
-  offense_team_id int not null,
-  defense_team_id int not null,
+  offense_team_id int,
+  defense_team_id int,
+  offense_score int,
+  defense_score int,  
   play_number smallint not null,
   period smallint not null,
   clock_minutes	smallint not null,
