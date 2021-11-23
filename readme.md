@@ -131,7 +131,7 @@ ORDER BY b.season DESC, d.drive_result DESC
 - So I will use Amazon EMR if I have to, when the data size is increased by 100 times
 
 ## Scope for future Improvements
-- The dataset can be manipulated for different metrics. One good data field is the play text whih contains the description of the plays. We can use this data for text analytics.
+- The dataset can be manipulated for different metrics. One good data field is the play text which contains the description of the plays. We can use this data for text analytics.
 - Also, we can gather data of player information and their drafting metrics.
 
 ## Conclusion
