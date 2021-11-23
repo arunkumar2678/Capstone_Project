@@ -1,10 +1,10 @@
 CREATE TABLE conference (
     conference_id smallint NOT NULL,
-    conference_full_name varchar(256) NULL,
-    conference_short_name varchar(256) NULL,
+    conference_full_name varchar(256),
+    conference_short_name varchar(256),
     conference_abbreviation varchar(20),
     CONSTRAINT conference_pkey PRIMARY KEY (conference_id)
-)
+);
 
 CREATE TABLE team (
     team_id int NOT NULL, 
@@ -35,7 +35,7 @@ CREATE TABLE team (
     location_grass boolean NOT NULL,
     location_dome boolean NOT NULL,
     CONSTRAINT team_pkey PRIMARY KEY (team_id)
-)
+);
 
 CREATE TABLE game (
     game_id int NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE game (
     venue varchar(256) NULL,
     home_team_id int NOT NULL,
     home_team varchar(256) NOT NULL,
-    home_points int,
+    home_team_points int,	
     home_line_scores_0 int,
     home_line_scores_1 int,
     home_line_scores_2 int,
@@ -58,7 +58,7 @@ CREATE TABLE game (
     home_post_win_prob float,
     away_team_id int NOT NULL,
     away_team varchar(256) NOT NULL,
-    away_points int,
+    away_team_points int,
     away_line_scores_0 int,
     away_line_scores_1 int, 
     away_line_scores_2 int,
@@ -68,10 +68,10 @@ CREATE TABLE game (
     highlights varchar (256), 
     notes varchar (256),
     CONSTRAINT game_pk PRIMARY KEY (game_id)
-)
+);
 
 CREATE TABLE drive(
-    drive_id int NOT NULL,
+    drive_id bigint NOT NULL,
     game_id bigint NOT NULL,
     offense varchar(256) NOT NULL,
     offense_conference varchar(256),
@@ -100,7 +100,7 @@ CREATE TABLE drive(
     end_offense_score smallint NOT NULL,
     end_defense_score smallint NOT NULL,
     CONSTRAINT drive_pk PRIMARY KEY (drive_id)
-)
+);
 
 
 CREATE TABLE play (
@@ -111,6 +111,8 @@ CREATE TABLE play (
     offense_team varchar(256) NOT NULL,
     defense_team_id int NOT NULL,
     defense_team varchar(256) NOT NULL, 
+    offense_score  smallint,
+    defense_score  smallint,
     drive_number smallint NOT NULL,
     play_number smallint NOT NULL,
     period  smallint NOT NULL,
@@ -125,16 +127,18 @@ CREATE TABLE play (
     scoring boolean NOT NULL,
     yards_gained integer NOT NULL,
     play_type varchar(256) NOT NULL, 
+    play_type_id smallint NULL,
     play_text varchar(2000), 
     ppa float, 
     wallclock timestamp,
-    CONSTRAINT plays_pk PRIMARY KEY (play_id)
- )
+    CONSTRAINT play_pk PRIMARY KEY (play_id)
+ );
 
 CREATE TABLE playtype(
     play_type_id smallint NOT NULL,
     play_type varchar(256) NOT NULL, 
     abbreviation varchar(10),
-    CONSTRAINT playtypes_pk PRIMARY KEY  (play_type_id)
-)
+    CONSTRAINT playtype_pk PRIMARY KEY  (play_type_id)
+);
+
 

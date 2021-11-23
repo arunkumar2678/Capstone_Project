@@ -154,3 +154,10 @@ betting_line_dim_table_insert = """insert into public.betting_line_dim (game_id,
                                 from public.game
                                 );"""
 
+# Data Quality checks
+conference_null_constraint = """Select count(conference_id) from conference where conference_id is null;"""
+team_null_constraint =  """Select count(team_id) from team where team_id is null;"""
+game_null_constraint =  """Select count(game_id) from game where game_id is null;"""
+drive_null_constraint =  """Select count(drive_id) from drive where drive_id is null;;"""
+play_null_constraint =  """Select count(play_id) from play where play_id is null;"""
+playtype_null_constraint ="""Select count(play_type_id) from playtype where play_type_id is null;"""

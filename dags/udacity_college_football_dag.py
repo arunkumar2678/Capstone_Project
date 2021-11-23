@@ -104,7 +104,9 @@ data_quality_conference_table = DataQualityOperator(
     dag=dag,
     redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
-    table = "public.conference"
+    table = "public.conference",
+    sql = sql_stmt.conference_null_constraint
+    
 )
 
 data_quality_team_table = DataQualityOperator(
@@ -112,7 +114,8 @@ data_quality_team_table = DataQualityOperator(
     dag=dag,
     redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
-    table = "public.team"
+    table = "public.team",
+    sql = sql_stmt.team_null_constraint
 )
 
 data_quality_game_table = DataQualityOperator(
@@ -120,14 +123,16 @@ data_quality_game_table = DataQualityOperator(
     dag=dag,
     redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
-    table = "public.game"
+    table = "public.game",
+    sql = sql_stmt.game_null_constraint
 )
 data_quality_drive_table = DataQualityOperator(
     task_id='data_quality_drive_table',
     dag=dag,
     redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
-    table = "public.drive"
+    table = "public.drive",
+    sql = sql_stmt.drive_null_constraint
 )
 
 data_quality_play_table = DataQualityOperator(
@@ -135,7 +140,8 @@ data_quality_play_table = DataQualityOperator(
     dag=dag,
     redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
-    table = "public.play"
+    table = "public.play",
+    sql = sql_stmt.play_null_constraint
 )
 
 data_quality_playtype_table = DataQualityOperator(
@@ -143,7 +149,8 @@ data_quality_playtype_table = DataQualityOperator(
     dag=dag,
     redshift_conn_id = "redshift",
     aws_conn_id = "aws_default",
-    table = "public.playtype"
+    table = "public.playtype",
+    sql = sql_stmt.playtype_null_constraint
 )
 
 begin_schema_build_operator = DummyOperator(task_id='Begin_Schema_Build',  dag=dag)
