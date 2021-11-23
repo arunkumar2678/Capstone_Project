@@ -71,7 +71,21 @@ Apache Airflow is an open-source tool to programmatically author, schedule, and 
 
 - dbdiagram: Used dbdiagram tool to create the data model. This tool has the import feature to create the diagram by directly importing the Postgres SQL scripts. This tools provides users with a seamless process in creating data model diagrams.
 
+#### Data Results 
+- LSU Touch downs by Season
+Select d.offense, b.season,  count(distinct a.drive_id) as TouchDowns
+from game_fact a
+join drive_dim d
+on a.drive_id = d.drive_id
+join game_dim b
+on a.game_id = b.game_id
+where d.offense = 'LSU'
+and d.drive_result = 'TD'
+group by  d.offense, b.season
+order by b.season desc
+
 - No of yards gained by school by season
+
 SELECT c.school,
        b.season,
        sum(yards_gained) AS total_yards
@@ -84,6 +98,7 @@ GROUP BY c.school,
 ORDER BY b.season DESC
 
 - All the offensive drive results of a team by season.
+
 SELECT d.offense,
        b.season,
        d.drive_result,
