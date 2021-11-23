@@ -32,16 +32,16 @@ I am using the data exported from ESPN and other open sources available online. 
 
 <img src='images/game_facts.png'>
 
-### Data Dictionary
+## Data Dictionary
 <img src='images/Data_Dictionary_1.jpg'>
 
 <img src='images/Data_Dictionary_2.jpg'>
 
-### Data Pipelines
+## Data Pipelines
 
 <img src='images/Airflow_Image.jpg'>
 
-#### Choice of tools
+## Tools
 I used the following tools to complete my project 
 - Apache Airflow
 - Python
@@ -97,7 +97,7 @@ GROUP BY d.offense,
          d.drive_result
 ORDER BY b.season DESC, d.drive_result DESC
 
-### Scope for future Improvements
+## Scope for future Improvements
 - The dataset can be manipilated for different metrics. One good data field is the play text whih contains the description of the plays. We can use this data for text analytics.
 - Also, we can gather data of player information and their drafting metrics.
 - If data was increased by 100x. If Spark with standalone server mode can not process 100x data set, we could consider to put data in AWS EMR which is a distributed data cluster for processing large data sets on cloud
