@@ -124,7 +124,7 @@ ORDER BY b.season DESC, d.drive_result DESC
 - The data should be available on a weekly basis preferrably every Monday by 8:00 AM. The load should be a full file load.
 
 #### If the database needed to be accessed by 100+ people.
-- Currently there is a max of 500 connections and 50 concurrency per cluster. So 500 connections to can be made with the database in Redshift cluster.
+- Currently there is a max of 500 connections and 50 concurrency per cluster. So 500 connections can be made with the database in Redshift cluster.
 
 #### If the data was increased by 100x.
 - **Per Amazon**:  "Amazon EMR (previously called Amazon Elastic MapReduce) is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. Using these frameworks and related open-source projects, you can process data for analytics purposes and business intelligence workloads. Amazon EMR also lets you transform and move large amounts of data into and out of other AWS data stores and databases, such as Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB."
