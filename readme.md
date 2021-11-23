@@ -72,7 +72,9 @@ Apache Airflow is an open-source tool to programmatically author, schedule, and 
 - dbdiagram: Used dbdiagram tool to create the data model. This tool has the import feature to create the diagram by directly importing the Postgres SQL scripts. This tools provides users with a seamless process in creating data model diagrams.
 
 #### Data Results 
+
 - LSU Touch downs by Season
+
 Select d.offense, b.season,  count(distinct a.drive_id) as TouchDowns
 from game_fact a
 join drive_dim d
@@ -83,6 +85,8 @@ where d.offense = 'LSU'
 and d.drive_result = 'TD'
 group by  d.offense, b.season
 order by b.season desc
+
+<img src='images/LSU_TDs_By_Season.png'>
 
 - No of yards gained by school by season
 
@@ -96,6 +100,8 @@ WHERE c.school = 'LSU'
 GROUP BY c.school,
          b.season
 ORDER BY b.season DESC
+
+<img src='images/LSU_Total_Yards_By_Season.png'>
 
 - All the offensive drive results of a team by season.
 
@@ -111,6 +117,8 @@ GROUP BY d.offense,
          b.season,
          d.drive_result
 ORDER BY b.season DESC, d.drive_result DESC
+
+<img src='images/LSU_Offense_Drive_Results_By_Season.png'>
 
 #### The pipelines run frequency
 - The data should be available on a weekly basis preferrably every Monday by 8:00 AM. The load should be a full file load.
