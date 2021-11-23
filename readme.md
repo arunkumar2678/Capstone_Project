@@ -97,21 +97,19 @@ GROUP BY d.offense,
          d.drive_result
 ORDER BY b.season DESC, d.drive_result DESC
 
-## Scope for future Improvements
-- The dataset can be manipilated for different metrics. One good data field is the play text whih contains the description of the plays. We can use this data for text analytics.
-- Also, we can gather data of player information and their drafting metrics.
-- If data was increased by 100x. If Spark with standalone server mode can not process 100x data set, we could consider to put data in AWS EMR which is a distributed data cluster for processing large data sets on cloud
-
 #### The pipelines run frequency
-The pipelines would be run on a daily basis by 7 am every day.
 - The data should be available on a weekly basis preferrably every Monday by 8:00 AM. The load should be a full file load.
 
 #### If the database needed to be accessed by 100+ people.
-- Currently there is a max of 500 connections and 50 concurrency per cluster. I can let 500 connections in the clsuter I have in the AWS.
+- Currently there is a max of 500 connections and 50 concurrency per cluster. I can let 500 connectionsto access my database in Redshift cluster.
 
 #### If the data was increased by 100x.
-**Per Amazon**:  "Amazon EMR (previously called Amazon Elastic MapReduce) is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. Using these frameworks and related open-source projects, you can process data for analytics purposes and business intelligence workloads. Amazon EMR also lets you transform and move large amounts of data into and out of other AWS data stores and databases, such as Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB."
-- So I will use Amazon EMR if I have to when the data size is increaed by 100 times
+- **Per Amazon**:  "Amazon EMR (previously called Amazon Elastic MapReduce) is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. Using these frameworks and related open-source projects, you can process data for analytics purposes and business intelligence workloads. Amazon EMR also lets you transform and move large amounts of data into and out of other AWS data stores and databases, such as Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB."
+- So I will use Amazon EMR if I have to, when the data size is increased by 100 times
+
+## Scope for future Improvements
+- The dataset can be manipulated for different metrics. One good data field is the play text whih contains the description of the plays. We can use this data for text analytics.
+- Also, we can gather data of player information and their drafting metrics.
 
 ## Conclusion
 
