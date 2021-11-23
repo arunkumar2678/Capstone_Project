@@ -71,7 +71,7 @@ Apache Airflow is an open-source tool to programmatically author, schedule, and 
 
 - dbdiagram: Used dbdiagram tool to create the data model. This tool has the import feature to create the diagram by directly importing the Postgres SQL scripts. This tools provides users with a seamless process in creating data model diagrams.
 
-#### Data Results 
+## Data Results 
 
 - LSU Touch downs by Season
 
@@ -122,6 +122,8 @@ ORDER BY b.season DESC, d.drive_result DESC
 
 #### The pipelines run frequency
 - The data should be available on a weekly basis preferrably every Monday by 8:00 AM. The load should be a full file load.
+
+## Approach for different use cases
 
 #### If the database needed to be accessed by 100+ people.
 - Currently there is a max of 500 connections and 50 concurrency per cluster. So 500 connections can be made with the database in Redshift cluster.
